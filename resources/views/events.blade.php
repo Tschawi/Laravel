@@ -10,7 +10,7 @@
     <h1>Events</h1>
     <ul>
         @foreach($events as $event)
-            <li>{{ $event -> title }} <a href="/event/{{$event -> id}}">Beitreten</a> </li>
+            <li><a href="/event/{{$event -> id}}">{{ $event -> title }} </a> </li>
         @endforeach
     </ul>
 </body>
