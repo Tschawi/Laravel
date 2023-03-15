@@ -7,6 +7,13 @@
 </head>
 <body>
     <h1>Anmeldung</h1>
+
+    <h2>
+        {{$event -> title}}
+    </h2>
+    <p>
+        {{$event -> description}}
+    </p>
     <form method="Post">
         @csrf
         <p>

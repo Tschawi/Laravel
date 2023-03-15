@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
-class Eventcontroller extends Controller
+class EventController extends Controller
 {
-    //
-    function create(){
-        $request = request();
-    
-        $application = new \App\Models\Application();
-        $application->answer = $request->get('answer');
-        $application->firstname = $request->get('firstname');
-        $application->lastname = $request->get('lastname');
-        $application->email = $request->get('email');
-        $application->save();
-    
-        return redirect('/anmeldung');
+    public function show($id){
+        $event = Event::findOrFail($id);
+
+        return view('anmeldung', [
+            'event' => $event
+            ]);
+    }
+
+    public function list(){
+        $events = Event::all();
+        return view('events', [
+            'events' => $events
+        ]);
     }
 }

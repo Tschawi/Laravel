@@ -6,24 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::table('applications_id', function (Blueprint $table) {
+        Schema::table('applications', function (Blueprint $table) {
             $table->integer('event_id');
-            //
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+    
     public function down(): void
     {
-        Schema::table('applications_id', function (Blueprint $table) {
-            //
+        Schema::table('applications', function (Blueprint $table) {
             $table->removeColumn('event_id');
         });
     }

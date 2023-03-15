@@ -2,19 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Application;
 use Illuminate\Http\Request;
 
 class ApplicationsController extends Controller
 {
-    //
-    function applications(){
+    public function create(){
+        $request = request();
 
-        $applications = \App\Models\Application::where('answer', 'yes');
-    
-        $declinedApplications = \App\Models\Application::where('answer', 'no')->count();
-        dd($declinedApplications);
-    
+        $application = new Application();
+        $application->email = $request->get('email');
+        $application->firstname = $request->get('firstname');
+        $application->lastname = $request->get('lastname');
+        $application->answer = $request->get('answer');
+        $application->save();
+
+        return redirect('/event');
+    }
+
+    public function  list(){
+        $applications = Application::where('answer', 'yes');
+        $declinedApplications = Application::where('answer', 'no')->count();
+
         return view('applications',[
-            'applications'=> $applications]);
-        }
+                'applications'=> $applications,
+                'declinedApplications' => $declinedApplications,
+            ]
+        );
+    }
+
 }

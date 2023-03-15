@@ -15,13 +15,10 @@ use \App\Http\Controllers\ApplicationsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/anmeldung', function () {
-    return view('anmeldung');
-});
-Route::post('/anmeldung', [Eventcontroller::class, 'create']);
-Route::post('/anmeldung', [Eventcontroller::class, 'show']);
+Route::get('/', [EventController::class, 'list']);
 
-Route::get('/anmeldung/applications', [ApplicationsController::class, 'applications']);
+Route::get('/event/{id}', [EventController::class, 'show']);
+
+Route::post('/event', [ApplicationsController::class, 'create']);
+
+Route::get('/event/applications', [ApplicationsController::class, 'list']);

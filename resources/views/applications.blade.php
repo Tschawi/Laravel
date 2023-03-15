@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p>Anmeldungen:</p>
+    <ul>
+        @foreach($applications as $application)
+            <li>{{ $application -> firstname }} {{ $application -> lastname }}</li>
+        @endforeach
+    </ul>
+
+    <p>Abmeldungen: {{$declinedapplications}}</p>
 </body>
 </html>
