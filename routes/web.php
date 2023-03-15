@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\Eventcontroller;
+use \App\Http\Controllers\ApplicationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,26 +21,6 @@ Route::get('/', function () {
 Route::get('/anmeldung', function () {
     return view('anmeldung');
 });
-Route::post('/anmeldung', function(){
-    $request = request();
+Route::post('/anmeldung', [Eventcontroller::class, 'create']);
 
-    $application = new \App\Models\Application();
-    $application->answer = $request->get('answer');
-    $application->firstname = $request->get('firstname');
-    $application->lastname = $request->get('lastname');
-    $application->email = $request->get('email');
-    $application->save();
-
-    return redirect('/anmeldung');
-});
-
-Route::get('/anmeldung/applications', function(){
-
-    $applications = \App\Models\Application::where('answer', 'yes');
-
-    $declinedApplications = \App\Models\Application::where('answer', 'no')->count();
-    dd($declinedApplications);
-
-    return view('applications',[
-        'applications'=> $applications]);
-});
+Route::get('/anmeldung/applications', [ApplicationsController::class, 'applications']);
