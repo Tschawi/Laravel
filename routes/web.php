@@ -22,5 +22,6 @@ Route::get('/anmeldung', function () {
     return view('anmeldung');
 });
 Route::post('/anmeldung', [Eventcontroller::class, 'create']);
+Route::post('/anmeldung', [Eventcontroller::class, 'show']);
 
 Route::get('/anmeldung/applications', [ApplicationsController::class, 'applications']);
