@@ -16,7 +16,7 @@ class ApplicationFactory extends Factory
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
             'email' => $this->faker->email,
-            //'session_id' => '',
+            'session_id' => '',
             'event_id' => $this->faker->numberBetween(1, 50)
         ];
     }

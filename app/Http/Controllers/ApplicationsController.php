@@ -15,6 +15,7 @@ class ApplicationsController extends Controller
         $application->firstname = $request->get('firstname');
         $application->lastname = $request->get('lastname');
         $application->answer = $request->get('answer');
+        $application->session_id = session()->getId();
         $application->save();
 
         return redirect('/event');
