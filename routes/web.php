@@ -19,6 +19,6 @@ Route::get('/', [EventController::class, 'list']);
 
 Route::get('/event/{id}', [EventController::class, 'show']);
 
-Route::post('/event', [ApplicationsController::class, 'create']);
+Route::post('/event/{id}', [ApplicationsController::class, 'create']);
 
-Route::get('/event/applications', [ApplicationsController::class, 'list']);
+Route::get('/event/{id}/applications', [ApplicationsController::class, 'List']);

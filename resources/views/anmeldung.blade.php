@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/anmeldung.css') }}">
 </head>
 <body>
-    <h1>Anmeldung</h1>
+    <h1> {{$event -> title}}</h1>
+    <p>{{$event -> description}}</p>
+    <p>{{$event -> date}}</p>
 
-    <h2>
-        {{$event -> title}}
-    </h2>
-    <p>
-        {{$event -> description}}
-    </p>
     <form method="Post">
         @csrf
         <p>
