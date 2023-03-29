@@ -14,6 +14,17 @@
 </head>
 
 <body>
+    <header>
+        <h1>Title</h1>
+        <nav>
+          <ul>
+            <li><a href="/">All Events</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+          </ul>
+        </nav>
+      </header>
+      
     @yield('content')
 </body>
 
