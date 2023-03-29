@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/event.css') }}">
-    <title>Events</title>
-</head>
-<body>
+@extends('layouts.default')
+
+@section('title', 'Events')
+
+@section('content')
     <h1>Events</h1>
     <ul>
         @foreach($events as $event)
             <li><div>{{ $event -> title }} <small>{{ $event -> date }}</small> <a href="/event/{{$event -> id}}">Beitreten</a></div> </li>
         @endforeach
     </ul>
-</body>
-</html>
+@endsection

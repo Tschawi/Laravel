@@ -25,7 +25,7 @@ class ApplicationsController extends Controller
         $application->event_id = $id;
         $application->save();
 
-        return redirect('/event/' . $id . '/applications');
+        return redirect('/event/' . $id);
     }
 
     public function  List($id){

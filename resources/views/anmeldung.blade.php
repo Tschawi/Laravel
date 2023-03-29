@@ -8,6 +8,7 @@
     <p>{{$event -> date}}</p>
 
     <form method="Post">
+        <a href="{{ url('/event/' . $event->id . '/applications') }}">Anmeldungen ansehen</a>
         @csrf
         <p>
             <label for="email">E-Mail:</label>
