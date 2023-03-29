@@ -19,13 +19,25 @@
         <nav>
           <ul>
             <li><a href="/">All Events</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
+            @auth
+            <li><a href="/create">Login</a></li>
+            <li><form method="POST" action="/logout" class="text-xs font-semibold text-blue-500 ml-6">
+                @csrf
+
+                <button type="submit">Log Out</button>
+            </form></li>
+            @else
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            @endauth
           </ul>
         </nav>
       </header>
       
     @yield('content')
+
+    
+    <x-flash />
 </body>
 
 </html>
