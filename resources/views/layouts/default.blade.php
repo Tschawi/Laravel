@@ -20,7 +20,7 @@
           <ul>
             <li><a href="/">All Events</a></li>
             @auth
-            <li><a href="/create">Login</a></li>
+            <li><a href="/create">create</a></li>
             <li><form method="POST" action="/logout" class="text-xs font-semibold text-blue-500 ml-6">
                 @csrf
 
