@@ -5,6 +5,8 @@ use \App\Http\Controllers\Eventcontroller;
 use \App\Http\Controllers\ApplicationsController;
 use \App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\CreateController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +36,9 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
 
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
+
+Route::get('/create', function () {
+    return view('create');
+})->middleware('auth');
+
+Route::post('create', [CreateController::class, 'store'])->middleware('auth');

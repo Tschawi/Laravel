@@ -9,6 +9,8 @@ class Event extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $guarded = [];
+
 
     public function applications(){
         return $this->hasMany(Application::class);
